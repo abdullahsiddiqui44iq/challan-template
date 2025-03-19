@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="challanTemplate.css">
+  <title>Challan</title>
+</head>
+<body>
+  <div class="container">
+    <div id="challanContainer" class="challan-container">
+      <div class="challan-header">
+        <h2 id="companyHeader"><b>Quality Blocks</b></h2>
+      </div>
+      <div class="info-sec">
+        <div class="left">
+          <h5><u><b>SALES OFFICE</b></u></h5>
+          <p>Plot No. 1, Ramzan Goth, Near Ijtimah Gah, Orangi town, Karachi</p>
+          <p>Email: qualityblock18@gmail.com</p>
+          <p>Cell: 0300-9219867/0333-2270891</p>
+          <p>Whatsapp: 0300-9219867</p>
+        </div>
+        <h3>Delivery Challan</h3>
+        <div class="right">
+          <h5><u><b>FACTORY</b></u></h5>
+          <p>Plot No. 1, Ramzan Goth, Near Ijtimah Gah, Orangi town, Karachi</p>
+          <p>Email: qualityblock18@gmail.com</p>
+          <p>Cell: 0300-9219867/0333-2270891</p>
+          <p>Whatsapp: 0300-9219867</p>
+        </div>
+      </div>
+      <div class="challan-body">
+        <div class="box1">
+          <p>Challan No: <span id="challan_no"></span></p>
+          <p>Challan Date: <span id="challan_date"></span></p>
+          <p>Sales Order No: <span id="order_id"></span></p>
+        </div>
+        <div class="box2">
+          <p>Client Name: <span id="client_name"></span></p>
+          <p>Site Contact: <span id="site_contact"></span></p>
+          <p>Delivery Site: <span id="delivery_address"></span></p>
+        </div>
+      </div>
+      <table class="challan-details">
+        <thead>
+          <tr>
+            <th>S.no</th>
+            <th>Description of Goods</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody id="productsTableBody"></tbody>
+      </table>
+      <div class="total"></div>
+      <hr />
+      <div class="challan-footer">
+        <ul>
+          <li>Goods once delivered will not be taken back or exchanged.</li>
+          <li>100% strength after 28 days from casting date</li>
+        </ul>
+        <center>THIS IS COMPUTER GENERATED DOCUMENT, SIGNATURE NOT REQUIRED</center>
+      </div>
+      <div class="signature-container">
+        <div class="signature">
+          <sub>Receiver Signature:</sub>
+          <span>_____________</span>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4 mb-4 no-print">
+      <button onclick="window.print()" class="btn btn-primary">
+        <i class="fas fa-print"></i> Print Challan
+      </button>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const challanData = {
+        challan_number: "CH-20240319",
+        challan_date: "19/03/2025",
+        order_number: "SO-12345",
+        client_name: "John Doe",
+        site_contact: "0300-1234567",
+        delivery_address: "Site XYZ, Karachi",
+        items: [
+          { product_quality: "Concrete Block - Grade A", quantity: 500 },
+          { product_quality: "Concrete Block - Grade B", quantity: 300 }
+        ]
+      };
+
+      document.getElementById("challan_no").textContent = challanData.challan_number;
+      document.getElementById("challan_date").textContent = challanData.challan_date;
+      document.getElementById("order_id").textContent = challanData.order_number;
+      document.getElementById("client_name").textContent = challanData.client_name;
+      document.getElementById("site_contact").textContent = challanData.site_contact;
+      document.getElementById("delivery_address").textContent = challanData.delivery_address;
+
+      const productsTableBody = document.getElementById("productsTableBody");
+      challanData.items.forEach((item, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${index + 1}</td><td>${item.product_quality}</td><td>${item.quantity}</td>`;
+        productsTableBody.appendChild(row);
+      });
+    });
+  </script>
+</body>
+</html>
