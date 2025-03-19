@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  font-size: larger;
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari */
+  color-adjust: exact !important; /* Firefox */
+}
+
+.challan-container {
+  border: 2px solid #000;
+  padding: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.challan-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info-sec {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.info-sec .left {
+  margin-left: 10px;
+  width: 25%;
+}
+
+.left p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.info-sec .right {
+  width: 25%;
+}
+
+.right p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.challan-details {
+  border: 2px solid black;
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.challan-details th,
+.challan-details td {
+  border: 2px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+.challan-footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.signature-container {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.signature {
+  margin-top: 10px;
+}
+
+.challan-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box1,
+.box2 {
+  display: inline-block;
+  border: 2px solid black;
+  width: 48%;
+  padding: 1rem;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  color: #333;
+  background-color: #333;
+}
+
+#companyHeader {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: none;
+}
+
+@media print {
+  .challan-container {
+    border: 2px solid #000;
+  }
+
+  .challan-details th,
+  .challan-details td {
+    border: 2px solid #000;
+  }
+
+  .box1,
+  .box2 {
+    border: 2px solid black;
+  }
+
+  #companyHeader {
+    display: block;
+  }
+
+  #companyHeader.hide-header {
+    display: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
